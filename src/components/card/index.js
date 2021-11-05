@@ -1,22 +1,41 @@
+import { useState } from "react";
+import Button from '../buton';
+
 const Card = () =>{
 
-    function add(){
+    const [valor, setValor] = useState (0)
 
+    function add(){
+        setValor(valor + 1);
     }
-    
+    function del(){
+        if(valor > 0){
+        setValor(valor - 1);
+        }else{
+            alert("Não existe valor para remover");
+        }
+    }
+
     return(
         <div className="card">
             <div className="card-header">
                 Meu primeiro Card
             </div>
             <div className="card-body">
-                <button type="button" class="btn btn-warning">
+                <Button
+                className="btn btn-warning" 
+                onClick={add}
+                >
                     Adicionar
-                </button>
-                <button type="button" class="btn btn-dark">
+                </Button>
+                <Button 
+                className="btn btn-dark" 
+                onClick={del}
+                >
                     Remover
-                </button>
-                <p>0</p>
+                </Button>
+               
+                <p>{valor}</p>
             </div>
         </div>  
     )
