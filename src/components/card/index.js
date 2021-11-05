@@ -1,4 +1,9 @@
 const Card = () =>{
+
+    function add(){
+
+    }
+    
     return(
         <div className="card">
             <div className="card-header">
